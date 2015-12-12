@@ -28,6 +28,14 @@ var SecureNet = require('securenet');
 var payos = new SecureNet(config);
 ```
 
+## Question
+
+You can verify (confirm card details) via online card data. Can you do the same for tokenizaitoned or vaulted data?
+
+Enable payment credits (FORCE_CREDIT) to allow checking of api client?
+Enable payment ach to allow checking of api client?
+
+
 ## Unit Tests
 
 We are using [Mocha](http://mochajs.org/) for unit testing.
