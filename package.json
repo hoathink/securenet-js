@@ -47,5 +47,8 @@
   ],
   "directories": {},
   "_shasum": "034206053375bd388d742ef8b693cdf360ba43e3",
-  "_resolved": "https://registry.npmjs.org/securenet/-/securenet-0.0.1.tgz"
+  "_resolved": "https://registry.npmjs.org/securenet/-/securenet-0.0.1.tgz",
+  "devDependencies": {
+    "should": "^8.0.1"
+  }
 }
