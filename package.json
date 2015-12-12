@@ -43,6 +43,7 @@
   "_shasum": "034206053375bd388d742ef8b693cdf360ba43e3",
   "_resolved": "https://registry.npmjs.org/securenet/-/securenet-0.0.1.tgz",
   "devDependencies": {
-    "chai": "^3.4.1"
+    "chai": "^3.4.1",
+    "lodash": "^3.10.1"
   }
 }

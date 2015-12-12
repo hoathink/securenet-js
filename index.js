@@ -99,6 +99,18 @@ module.exports = function(options) {
 		util.get('Customers/' + data.customerId + '/PaymentMethod/' + data.paymentMethodId, null, callback);
 	};
 
+	secureNet.updateCustomerPaymentMethod = function(data, callback) {
+		if (! data.customerId) {
+			util.error({ message: 'customerId is required' }, callback);
+			return;
+		}
+		if (! data.paymentMethodId) {
+			util.error({ message: 'paymentMethodId is required' }, callback);
+			return;
+		}
+		util.put('Customers/' + data.customerId + '/PaymentMethod/' + data.paymentMethodId, data, callback);
+	};
+
 	secureNet.deleteCustomerPaymentMethod = function(data, callback) {
 		if (! data.customerId) {
 			util.error({ message: 'customerId is required' }, callback);
