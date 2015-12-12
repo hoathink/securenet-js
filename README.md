@@ -9,14 +9,23 @@ for help.
 ## Usage
 
 ```javascript
+
 var credentials = {
 	securenetId: ' your securenet id key ', //provided via signup email
-	securenetKey: ' your securenet secure key ', //provided inside virtual terminal
-	mode: 'live' // live or test
+	securenetKey: ' your securenet secure key ' //provided inside virtual terminal
+};
+var developerApplication = {
+	developerId: 12345678,
+	Version: '1.2'
+};
+var config = {
+	credentials: credentials,
+	developerApplication: developerApplication,
+	mode: 'live' //live or test
 };
 
 var SecureNet = require('securenet');
-var payos = new SecureNet(credentials);
+var payos = new SecureNet(config);
 ```
 
 ## Unit Tests
@@ -38,6 +47,8 @@ $ npm install -g should
 
 Run unit tests:
 ```bash
-$ mocha
+$ mocha --recursive
 ```
-## LICENSE BSD-2-Clause
+## LICENSE
+
+BSD-2-Clause

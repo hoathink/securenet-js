@@ -1,15 +1,20 @@
+'use strict';
+
 module.exports = function(options) {
 
-	// Public methods are at the bottom
 
 	var secureNet = {};
-
 	var util = require('./lib/util').init(options);
 
 	//expose properties (for unit tests)
 	secureNet.mode = options.mode;
-	secureNet.securenetId = options.securenetId;
-	secureNet.securenetKey = options.securenetKey;
+	secureNet.securenetId = options.credentials.securenetId;
+	secureNet.securenetKey = options.credentials.securenetKey;
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Config
+	////////////////////////////////////////////////////////////////////////////////
+
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Batch Processing

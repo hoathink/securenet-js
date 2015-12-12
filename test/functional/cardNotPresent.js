@@ -1,21 +1,28 @@
 'use strict';
 var should = require('should');
-var SecureNet = require('../index');
-var credentials = {
+var SecureNet = require('../../index');
+var config = {
 	mode: 'test',
-	securenetId: process.env.SECURENET_ID,
-	securenetKey: process.env.SECURENET_KEY
+	credentials: {
+		securenetId: process.env.SECURENET_ID,
+		securenetKey: process.env.SECURENET_KEY
+	},
+	developerApplication: {
+		developerId: 12345678,
+		Version: '1.2'
+	}
 };
+
 var api;
 
-describe('Unit tests', function () {
+describe('Card not present', function () {
 	beforeEach(function () {
-		api = new SecureNet(credentials);
+		api = new SecureNet(config);
 	});
 
 	it('credential found in environment variable', function () {
-		credentials.securenetId.should.be.type('string');
-		credentials.securenetKey.should.be.type('string');
+		config.credentials.securenetId.should.be.type('string');
+		config.credentials.securenetKey.should.be.type('string');
 	});
 
 	it('has expected base methods', function () {
@@ -30,11 +37,17 @@ describe('Unit tests', function () {
 	});
 
 	it('supports multiple instances', function () {
-		var a = new SecureNet(credentials);
+		var a = new SecureNet(config);
 		var b = new SecureNet({
 			mode: 'live',
-			securenetId: 'fake',
-			securenetKey: 'fake'
+			credentials: {
+				securenetId: 'fake',
+				securenetKey: 'fake'
+			},
+			developerApplication: {
+				developerId: 12345678,
+				Version: '1.2'
+			}
 		});
 
 		b.securenetKey.should.not.equal(a.securenetKey);
