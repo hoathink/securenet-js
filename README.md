@@ -10,11 +10,13 @@ for help.
 
 ```javascript
 var credentials = {
-	securenetid: ' your securenet id key ', //provided via signup email
-	securekey: ' your securenet secure key ' //provided inside virtual terminal
+	securenetId: ' your securenet id key ', //provided via signup email
+	secureKey: ' your securenet secure key ', //provided inside virtual terminal
+	mode: 'live' // live or test
 };
 
 var SecureNet = require('securenet').init;
-var securenet = new SecureNet(credentials);
+var payos = new SecureNet(credentials);
 ```
+
 
