@@ -73,3 +73,7 @@ exports.check = {
 	routingNumber: 222371863,
 	accountNumber: 123456
 };
+
+exports.extendedInformation = {
+	typeOfGoods: 'PHYSICAL'
+};
