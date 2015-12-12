@@ -277,6 +277,41 @@ describe('Vault', function() {
 			next();
 		});
 	});
+
+	it('deleteCustomerPaymentMethod', function(next) {
+
+		//setup
+		var params = {
+			customerId: customerId,
+			paymentMethodId: paymentMethodId
+		};
+
+		//call api
+		api.deleteCustomerPaymentMethod(params, function(err, res) {
+			if (err) return next(err);
+
+			//console.log('res', res);
+
+			/*{ success: true,
+  result: 'APPROVED',
+  responseCode: 1,
+  message: 'SUCCESS',
+  responseDateTime: Sat Dec 12 2015 08:09:20 GMT-0600 (CST),
+  rawRequest: null,
+  rawResponse: null,
+  jsonRequest: null }*/
+
+			//confirm response
+			assert.typeOf(res, 'object');
+			//assert.typeOf(res.vaultPaymentMethod, 'object');
+			//assert.equal(res.vaultPaymentMethod.method, 'CC');
+
+			//setup for next test
+			//paymentId = res.vaultPaymentMethod.paymentId;
+
+			next();
+		});
+	});
 });
 
 

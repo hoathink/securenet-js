@@ -4,7 +4,7 @@ var SecureNet = require('../../index');
 var example = require('../example.data');
 var api;
 
-describe('Spec tests', function () {
+describe('Spec', function () {
 	beforeEach(function () {
 		api = new SecureNet(example.config);
 	});

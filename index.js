@@ -17,7 +17,7 @@ module.exports = function(options) {
 
 
 	////////////////////////////////////////////////////////////////////////////////
-	// Batch Processing
+	// Settlement
 	////////////////////////////////////////////////////////////////////////////////
 
 	secureNet.getBatch = function(batchId, callback) {
@@ -36,7 +36,7 @@ module.exports = function(options) {
 	};
 
 	////////////////////////////////////////////////////////////////////////////////
-	// Transaction Processing
+	// Transaction Processing (card present & card not present)
 	////////////////////////////////////////////////////////////////////////////////
 
 	secureNet.authorize = function(data, callback) {
@@ -116,7 +116,7 @@ module.exports = function(options) {
 			util.error({ message: 'customerId is required' }, callback);
 			return;
 		}
-		if (! data.planId) {
+		if (! data.paymentMethodId) {
 			util.error({ message: 'paymentMethodId is required' }, callback);
 			return;
 		}
