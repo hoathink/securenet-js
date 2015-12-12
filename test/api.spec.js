@@ -19,13 +19,14 @@ describe('Unit tests', function () {
 	});
 
 	it('has expected base methods', function () {
+		// todo: list all public functions
 		api.getBatch.should.be.type('function');
 	});
 
 	it('has expected base properties', function () {
-		//api.basicAuth.should.be.type('object');
 		api.mode.should.be.type('string');
 		api.securenetId.should.be.type('string');
+		api.securenetKey.should.be.type('string');
 	});
 
 	it('supports multiple instances', function () {
