@@ -1,43 +1,32 @@
 'use strict';
-var should = require('should');
+var assert = require('chai').assert; //http://chaijs.com/api/assert/
 var SecureNet = require('../../index');
-var config = {
-	mode: 'test',
-	credentials: {
-		securenetId: process.env.SECURENET_ID,
-		securenetKey: process.env.SECURENET_KEY
-	},
-	developerApplication: {
-		developerId: 12345678,
-		Version: '1.2'
-	}
-};
-
+var example = require('../example.data');
 var api;
 
-describe('Unit tests spec', function () {
+describe('Spec tests', function () {
 	beforeEach(function () {
-		api = new SecureNet(config);
+		api = new SecureNet(example.config);
 	});
 
 	it('credential found in environment variable', function () {
-		config.credentials.securenetId.should.be.type('string');
-		config.credentials.securenetKey.should.be.type('string');
+		assert.typeOf(example.config.credentials.securenetId, 'string');
+		assert.typeOf(example.config.credentials.securenetKey, 'string');
 	});
 
 	it('has expected base methods', function () {
 		// todo: list all public functions
-		api.getBatch.should.be.type('function');
+		assert.typeOf(api.getBatch, 'function');
 	});
 
 	it('has expected base properties', function () {
-		api.mode.should.be.type('string');
-		api.securenetId.should.be.type('string');
-		api.securenetKey.should.be.type('string');
+		assert.typeOf(api.mode, 'string');
+		assert.typeOf(api.securenetId, 'string');
+		assert.typeOf(api.securenetKey, 'string');
 	});
 
 	it('supports multiple instances', function () {
-		var a = new SecureNet(config);
+		var a = new SecureNet(example.config);
 		var b = new SecureNet({
 			mode: 'live',
 			credentials: {
@@ -50,8 +39,8 @@ describe('Unit tests spec', function () {
 			}
 		});
 
-		b.securenetKey.should.not.equal(a.securenetKey);
-		b.securenetId.should.not.equal(a.securenetId);
-		b.mode.should.not.equal(a.mode);
+		assert.notEqual(b.mode, a.mode);
+		assert.notEqual(b.securenetKey, a.securenetKey);
+		assert.notEqual(b.securenetId, a.securenetId);
 	});
 });
