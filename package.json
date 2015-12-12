@@ -1,0 +1,51 @@
+{
+  "name": "securenet",
+  "version": "0.0.1",
+  "description": "A library to process ACH and credit card transactions through the SecureNet gateway",
+  "main": "index.js",
+  "dependencies": {
+    "request": "~2.36.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rjstanford/securenet-node.git"
+  },
+  "keywords": [
+    "securenet",
+    "creditcard",
+    "ach"
+  ],
+  "author": {
+    "name": "Richard Stanford",
+    "email": "richard@richardstanford.com",
+    "url": "http://richardstanford.com/"
+  },
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/rjstanford/securenet-node/issues"
+  },
+  "homepage": "https://github.com/rjstanford/securenet-node",
+  "_id": "securenet@0.0.1",
+  "dist": {
+    "shasum": "034206053375bd388d742ef8b693cdf360ba43e3",
+    "tarball": "http://registry.npmjs.org/securenet/-/securenet-0.0.1.tgz"
+  },
+  "_from": "securenet@",
+  "_npmVersion": "1.3.14",
+  "_npmUser": {
+    "name": "rjstanford",
+    "email": "richard@richardstanford.com"
+  },
+  "maintainers": [
+    {
+      "name": "rjstanford",
+      "email": "richard@richardstanford.com"
+    }
+  ],
+  "directories": {},
+  "_shasum": "034206053375bd388d742ef8b693cdf360ba43e3",
+  "_resolved": "https://registry.npmjs.org/securenet/-/securenet-0.0.1.tgz"
+}
