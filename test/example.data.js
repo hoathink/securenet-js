@@ -3,12 +3,12 @@
 exports.config = {
     mode: 'test',
     credentials: {
-        securenetId: process.env.SECURENET_ID,
-        securenetKey: process.env.SECURENET_KEY
+        secureNetId: process.env.SECURENET_ID,
+        secureNetKey: process.env.SECURENET_KEY
     },
     developerApplication: {
         developerId: 12345678,
-        Version: '1.2'
+        version: '1.2'
     }
 };
 

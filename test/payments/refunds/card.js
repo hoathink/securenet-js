@@ -6,7 +6,7 @@ var SecureNet = require('../../../index');
 var example = require('../../example.data');
 var api, customerId, transactionId;
 
-describe('Payments refund settled transaction to card', function() {
+describe('Payments/refund settled transaction to card', function() {
 
 	//set the timeout
 	this.timeout(15000);

@@ -6,7 +6,7 @@ var SecureNet = require('../../index');
 var example = require('../example.data');
 var api, customerId, paymentMethodId;
 
-describe('Vault', function() {
+describe('Vault - card data', function() {
 
 	//set the timeout
 	this.timeout(15000);
@@ -74,7 +74,7 @@ describe('Vault', function() {
 		});
 	});
 
-/*	it('createCustomerPaymentMethod check', function(next) {
+	it.skip('createCustomerPaymentMethod check', function(next) {
 
 		//setup
 		var method = {
@@ -103,7 +103,7 @@ describe('Vault', function() {
 
 			next();
 		});
-	});*/
+	});
 
 	it('createCustomerPaymentMethod card', function(next) {
 

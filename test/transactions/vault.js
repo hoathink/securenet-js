@@ -6,7 +6,7 @@ var SecureNet = require('../../index');
 var example = require('../example.data');
 var api, customerId, paymentMethodId;
 
-describe('Card transaction via vault data', function() {
+describe('Payments transactions - vault', function() {
 
 	//set the timeout
 	this.timeout(15000);
@@ -79,8 +79,8 @@ describe('Card transaction via vault data', function() {
 				paymentMethodId: paymentMethodId,
 			},
 			//vaultCredentials:{
-			//	secureNetId: api.securenetId,
-			//	secureNetKey: api.securenetKey,
+			//	secureNetId: api.secureNetId,
+			//	secureNetKey: api.secureNetKey,
 			//},
 			extendedInformation: example.extendedInformation
 		};

@@ -6,7 +6,7 @@ var SecureNet = require('../../../index');
 var example = require('../../example.data');
 var api, customerId, paymentMethodId;
 
-describe('Payment (forced/unlinked) credit to card', function() {
+describe('Payments/credit (forced/unlinked) credit to card', function() {
 
 	//set the timeout
 	this.timeout(15000);

@@ -8,8 +8,8 @@ module.exports = function(options) {
 
 	//expose properties (for unit tests)
 	secureNet.mode = options.mode;
-	secureNet.securenetId = options.credentials.securenetId;
-	secureNet.securenetKey = options.credentials.securenetKey;
+	secureNet.secureNetId = options.credentials.secureNetId;
+	secureNet.secureNetKey = options.credentials.secureNetKey;
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Config
@@ -64,118 +64,126 @@ module.exports = function(options) {
 	};
 
 	secureNet.getCustomer = function(data, callback) {
-		if (typeof data === 'object') {
-			if (! data.customerId) {
-				util.error({ message: 'customerId is required' }, callback);
-				return;
-			}
-			util.get('/Customers/' + data.customerId, null, callback);
-		} else {
-			util.get('/Customers/' + data, null, callback);
-		}
+
+		//convenience
+		if (typeof data !== 'object') data = {customerId: data};
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+
+		util.get('/Customers/' + data.customerId, null, callback);
 	};
 
 	secureNet.updateCustomer = function(data, callback) {
-		if (! data.customerId) {
-			util.error({ message: 'customerId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+
 		util.put('Customers/' + data.customerId, data, callback);
 	};
 
 	secureNet.createCustomerPaymentMethod = function(data, callback) {
-		if (! data.customerId) {
-			util.error({ message: 'customerId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+
 		util.post('Customers/' + data.customerId + '/PaymentMethod', data, callback);
 	};
 
 	secureNet.getCustomerPaymentMethod = function(data, callback) {
-		if (! data.customerId) {
-			util.error({ message: 'customerId is required' }, callback);
-			return;
-		}
-		if (! data.paymentMethodId) {
-			util.error({ message: 'paymentMethodId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+		if (! data.paymentMethodId) return util.error({ message: 'paymentMethodId is required' }, callback);
+
 		util.get('Customers/' + data.customerId + '/PaymentMethod/' + data.paymentMethodId, null, callback);
 	};
 
 	secureNet.updateCustomerPaymentMethod = function(data, callback) {
-		if (! data.customerId) {
-			util.error({ message: 'customerId is required' }, callback);
-			return;
-		}
-		if (! data.paymentMethodId) {
-			util.error({ message: 'paymentMethodId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+		if (! data.paymentMethodId) return util.error({ message: 'paymentMethodId is required' }, callback);
+
 		util.put('Customers/' + data.customerId + '/PaymentMethod/' + data.paymentMethodId, data, callback);
 	};
 
 	secureNet.deleteCustomerPaymentMethod = function(data, callback) {
-		if (! data.customerId) {
-			util.error({ message: 'customerId is required' }, callback);
-			return;
-		}
-		if (! data.paymentMethodId) {
-			util.error({ message: 'paymentMethodId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+		if (! data.paymentMethodId)  return util.error({ message: 'paymentMethodId is required' }, callback);
+
 		util.delete('Customers/' + data.customerId + '/PaymentMethod/' + data.paymentMethodId, null, callback);
 	};
 
 	////////////////////////////////////////////////////////////////////////////////
-	// Installment Plans
+	// AutoBill Plans
 	////////////////////////////////////////////////////////////////////////////////
 
 	secureNet.createInstallmentPlan = function(data, callback) {
-		if (! data.customerId) {
-			util.error({ message: 'customerId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+
 		util.post('Customers/' + data.customerId + '/PaymentSchedules/Installment', data, callback);
+	};
+	secureNet.updateInstallmentPlan = function(data, callback) {
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+		if (! data.planId) return util.error({ message: 'planId is required' }, callback);
+
+		util.put('Customers/' + data.customerId + '/PaymentSchedules/Installment/' + data.planId, data, callback);
 	};
 
 	secureNet.createVariablePlan = function(data, callback) {
-		if (! data.customerId) {
-			util.error({ message: 'customerId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+
 		util.post('Customers/' + data.customerId + '/PaymentSchedules/Variable', data, callback);
+	};
+	secureNet.updateVariablePlan = function(data, callback) {
+
+		//validate
+		if (! data.customerId)  return util.error({ message: 'customerId is required' }, callback);
+		if (! data.planId) return util.error({ message: 'planId is required' }, callback);
+
+		util.put('Customers/' + data.customerId + '/PaymentSchedules/Variable/' + data.planId, data, callback);
 	};
 
 	secureNet.createRecurringPlan = function(data, callback) {
-		if (! data.customerId) {
-			util.error({ message: 'customerId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+
 		util.post('Customers/' + data.customerId + '/PaymentSchedules/Recurring', data, callback);
+	};
+	secureNet.updateRecurringPlan = function(data, callback) {
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+		if (! data.planId) return util.error({ message: 'planId is required' }, callback);
+
+		util.put('Customers/' + data.customerId + '/PaymentSchedules/Recurring/' + data.planId, data, callback);
 	};
 
 	secureNet.getPlan = function(data, callback) {
-		if (! data.customerId) {
-			util.error({ message: 'customerId is required' }, callback);
-			return;
-		}
-		if (! data.planId) {
-			util.error({ message: 'planId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+		if (! data.planId) return util.error({ message: 'planId is required' }, callback);
+
 		util.get('Customers/' + data.customerId + '/PaymentSchedules/' + data.planId, null, callback);
 	};
 
 	secureNet.deletePlan = function(data, callback) {
-		if (! data.customerId) {
-			util.error({ message: 'customerId is required' }, callback);
-			return;
-		}
-		if (! data.planId) {
-			util.error({ message: 'planId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.customerId) return util.error({ message: 'customerId is required' }, callback);
+		if (! data.planId) return util.error({ message: 'planId is required' }, callback);
+
 		util.delete('Customers/' + data.customerId + '/PaymentSchedules/' + data.planId, null, callback);
 	};
 
@@ -192,19 +200,25 @@ module.exports = function(options) {
 	////////////////////////////////////////////////////////////////////////////////
 
 	secureNet.refund = function(data, callback) {
-		if (typeof data === 'object') {
-			util.post('/Payments/Refund', data, callback);
-		} else {
-			util.post('/Payments/Refund', { transactionId: data }, callback);
-		}
+
+		//convenience
+		if (typeof data !== 'object') data = {transactionId: data};
+
+		//validate
+		if (! data.transactionId) return util.error({ message: 'transactionId is required' }, callback);
+
+		util.post('/Payments/Refund', data, callback);
 	};
 
 	secureNet.void = function(data, callback) {
-		if (typeof data === 'object') {
-			util.post('/Payments/Void', data, callback);
-		} else {
-			util.post('/Payments/Void', { transactionId: data }, callback);
-		}
+
+		//convenience
+		if (typeof data !== 'object') data = {transactionId: data};
+
+		//validate
+		if (! data.transactionId) return util.error({ message: 'transactionId is required' }, callback);
+
+		util.post('/Payments/Void', data, callback);
 	};
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -212,6 +226,8 @@ module.exports = function(options) {
 	////////////////////////////////////////////////////////////////////////////////
 
 	secureNet.getTransactions = function(data, callback) {
+
+		//validate
 		if (typeof data === 'object') {
 			util.post('/Transactions/Search', data, callback);
 		} else {
@@ -220,22 +236,21 @@ module.exports = function(options) {
 	};
 
 	secureNet.getTransaction = function(data, callback) {
-		if (typeof data === 'object') {
-			if (! data.transactionId) {
-				util.error({ message: 'transactionId is required' }, callback);
-				return;
-			}
-			util.get('/Transactions/' + data.transactionId, null, callback);
-		} else {
-			util.get('/Transactions/' + data, null, callback);
-		}
+
+		//convenience
+		if (typeof data !== 'object') data = {transactionId: data};
+
+		//validate
+		if (! data.transactionId) return util.error({ message: 'transactionId is required' }, callback);
+
+		util.get('/Transactions/' + data.transactionId, null, callback);
 	};
 
 	secureNet.updateTransaction = function(data, callback) {
-		if (! data.referenceTransactionId) {
-			util.error({ message: 'referenceTransactionId is required' }, callback);
-			return;
-		}
+
+		//validate
+		if (! data.referenceTransactionId) return util.error({ message: 'referenceTransactionId is required' }, callback);
+
 		util.put('/Transactions/' + data.referenceTransactionId, data, callback);
 	};
 

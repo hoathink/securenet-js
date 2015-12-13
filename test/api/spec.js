@@ -10,8 +10,8 @@ describe('Spec', function () {
 	});
 
 	it('credential found in environment variable', function () {
-		assert.typeOf(example.config.credentials.securenetId, 'string');
-		assert.typeOf(example.config.credentials.securenetKey, 'string');
+		assert.typeOf(example.config.credentials.secureNetId, 'string');
+		assert.typeOf(example.config.credentials.secureNetKey, 'string');
 	});
 
 	it('has expected base methods', function () {
@@ -21,8 +21,8 @@ describe('Spec', function () {
 
 	it('has expected base properties', function () {
 		assert.typeOf(api.mode, 'string');
-		assert.typeOf(api.securenetId, 'string');
-		assert.typeOf(api.securenetKey, 'string');
+		assert.typeOf(api.secureNetId, 'string');
+		assert.typeOf(api.secureNetKey, 'string');
 	});
 
 	it('supports multiple instances', function () {
@@ -30,8 +30,8 @@ describe('Spec', function () {
 		var b = new SecureNet({
 			mode: 'live',
 			credentials: {
-				securenetId: 'fake',
-				securenetKey: 'fake'
+				secureNetId: 'fake',
+				secureNetKey: 'fake'
 			},
 			developerApplication: {
 				developerId: 12345678,
@@ -40,7 +40,7 @@ describe('Spec', function () {
 		});
 
 		assert.notEqual(b.mode, a.mode);
-		assert.notEqual(b.securenetKey, a.securenetKey);
-		assert.notEqual(b.securenetId, a.securenetId);
+		assert.notEqual(b.secureNetKey, a.secureNetKey);
+		assert.notEqual(b.secureNetId, a.secureNetId);
 	});
 });

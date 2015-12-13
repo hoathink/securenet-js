@@ -6,7 +6,7 @@ var SecureNet = require('../../index');
 var example = require('../example.data');
 var api, transactionId;
 
-describe('Card transactions via online data', function() {
+describe('Payments transactions - card', function() {
 
 	//set the timeout
 	this.timeout(15000);
@@ -15,7 +15,7 @@ describe('Card transactions via online data', function() {
 		api = new SecureNet(example.config);
 	});
 
-	it('authorize', function(next) {
+	it('authorize using card data', function(next) {
 
 		//setup
 		var params = {
@@ -108,7 +108,7 @@ describe('Card transactions via online data', function() {
 	});
 
 
-	it('capture', function(next) {
+	it('capture using card data', function(next) {
 
 		//setup
 		var params = {
@@ -200,7 +200,7 @@ describe('Card transactions via online data', function() {
 		});
 	});
 
-	it('charge card', function(next) {
+	it('charge using card data', function(next) {
 
 		//setup
 		var params = {
@@ -292,7 +292,7 @@ describe('Card transactions via online data', function() {
 		});
 	});
 
-	it('verify', function(next) {
+	it('verify using card data', function(next) {
 
 		//setup
 		var params = {

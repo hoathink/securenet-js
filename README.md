@@ -1,9 +1,7 @@
 securenet-node
 ==============
 
-SecureNet PayOS API community library for Node.js. Please see the
-[PayOS API docs](https://apidocs.securenet.com/docs/getstarted.html)
-for help.
+SecureNet PayOS API community library for Node.js.
 
 
 ## Usage
@@ -11,12 +9,12 @@ for help.
 ```javascript
 
 var credentials = {
-	securenetId: ' your securenet id key ', //provided via signup email
-	securenetKey: ' your securenet secure key ' //provided inside virtual terminal
+	secureNetId: ' your securenet id key ', //provided via signup email
+	secureNetKey: ' your securenet secure key ' //provided inside virtual terminal
 };
 var developerApplication = {
 	developerId: 12345678,
-	Version: '1.2'
+	version: '1.2'
 };
 var config = {
 	credentials: credentials,
@@ -28,13 +26,72 @@ var SecureNet = require('securenet');
 var payos = new SecureNet(config);
 ```
 
-## Question
+## Features
 
-You can verify (confirm card details) via online card data. Can you do the same for tokenizaitoned or vaulted data?
+All features of the PayOS are supported.
 
-Enable payment credits (FORCE_CREDIT) to allow checking of api client?
-Enable payment ach to allow checking of api client?
+Payment Methods
+- Credit Cards
+	- Card Not Present (online)
+	- Card Present (swipe/track)
+- Bank Accounts
+	- Savings accounts
+	- checking accounts
+- Pin-less debit cards
+- Vault data
 
+Supported Payments
+- Charges
+- Authorizations
+- Capture
+- Voids
+- Refunds
+- Credits
+- Verify (card data)
+- Settlement Batches (authorizations & captures)
+	- Close
+	- Retrieving closed batch
+	- Retrieving current batch
+
+Vault
+- Customers
+	- Create
+	- Retrieve
+	- Update
+- Payment Method (associated with customer)
+	- Create
+	- Retrieve
+	- Update
+	- Delete
+- Storing Customer & Payment Method at the same time
+- Storing after charge
+- Paying with stored data
+
+Billing Plans
+- Recurring Paymment Plan
+	- Create
+	- Update
+	- Retrieve
+- Installment Plan
+	- Cretae
+	- Update
+	- Retrieve
+- Variable Payment Plan
+	- Create
+	- Update
+	- Retrieve
+
+Transaction Reporting
+- Searching
+- Retrieving
+- Update transaction
+
+User Defined Fields
+-
+
+## API
+
+Please see the [PayOS API docs](https://apidocs.securenet.com/docs/getstarted.html).
 
 ## Unit Tests
 
