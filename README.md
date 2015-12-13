@@ -121,6 +121,14 @@ Run unit tests:
 $ npm test
 ```
 
+## Code Coverage
+```bash
+npm install -g istanbul
+istanbul cover _mocha -- -R spec
+open coverage/lcov-report/index.html
+```
+
+
 ## People
 The original author of securenet-node is [Richard Stanford](http://richardstanford.com/).
 
