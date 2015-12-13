@@ -122,9 +122,9 @@ $ npm test
 ```
 
 ## People
-The original author of securenet-node is (Richard Stanford)[http://richardstanford.com/].
+The original author of securenet-node is (http://richardstanford.com/)[Richard Stanford].
 
-The current lead maintainer is (Dan Hollenbeck)[https://github.com/dhollenbeck].
+The current lead maintainer is (https://github.com/dhollenbeck)[Dan Hollenbeck].
 
 ## LICENSE
 
