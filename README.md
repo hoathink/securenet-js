@@ -1,7 +1,13 @@
 securenet-node
 ==============
 
-SecureNet PayOS API community library for Node.js.
+SecureNet [PayOS API docs](https://apidocs.securenet.com/docs/getstarted.html) community library for Node.js.
+
+## Installation
+
+```bash
+npm install securenet --save
+```
 
 
 ## Usage
@@ -28,7 +34,7 @@ var payos = new SecureNet(config);
 
 ## Features
 
-All features of the PayOS are supported.
+All features of the [PayOS API docs](https://apidocs.securenet.com/docs/getstarted.html) are supported.
 
 Payment Methods
 - Credit Cards
