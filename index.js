@@ -23,8 +23,9 @@ module.exports = function(options) {
 	secureNet.getBatch = function(batchId, callback) {
 		if (!batchId) {
 			util.get('batches/Current', null, callback);
+		} else {
+			util.get('batches/' + batchId, null, callback);
 		}
-		util.get('batches/' + batchId, null, callback);
 	};
 
 	secureNet.getCurrentBatch = function(callback) {

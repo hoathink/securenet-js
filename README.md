@@ -118,8 +118,14 @@ $ npm install -g should
 
 Run unit tests:
 ```bash
-$ mocha --recursive
+$ npm test
 ```
+
+## People
+The original author of securenet-node is (Richard Stanford)[http://richardstanford.com/].
+
+The current lead maintainer is (Dan Hollenbeck)[https://github.com/dhollenbeck].
+
 ## LICENSE
 
 [BSD-2-Clause](https://github.com/HOAThink/securenet-node/blob/master/LICENSE)

@@ -138,7 +138,7 @@ describe('AutoBill - card data', function() {
 		api.updateRecurringPlan(params, function(err, res) {
 			if (err) return next(err);
 
-			console.log('res', res);
+			//console.log('res', res);
 
 			/**/
 
