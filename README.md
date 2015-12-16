@@ -34,6 +34,17 @@ var payos = new SecureNet(config);
 
 ## Features
 
+The following features are supported:
+- Multiple client instances.
+- Can change mode between live (`live`) and sandbox (`test`).
+	- At initialization of the client.
+	- On a client instance after initialization.
+	- On a specific transaction.
+- All PayOS API commands are supported.
+- Fully unit tested.
+
+## Supported PayOS Commands
+
 All features of the [PayOS API docs](https://apidocs.securenet.com/docs/getstarted.html) are supported.
 
 Payment Methods
