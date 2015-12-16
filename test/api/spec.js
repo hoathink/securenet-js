@@ -16,13 +16,8 @@ describe('Spec', function () {
 
 	it('has expected base methods', function () {
 		// todo: list all public functions
+		assert.typeOf(api.getMode, 'function');
 		assert.typeOf(api.getBatch, 'function');
-	});
-
-	it('has expected base properties', function () {
-		assert.typeOf(api.mode, 'string');
-		assert.typeOf(api.secureNetId, 'string');
-		assert.typeOf(api.secureNetKey, 'string');
 	});
 
 	it('supports multiple instances', function () {
@@ -39,8 +34,22 @@ describe('Spec', function () {
 			}
 		});
 
-		assert.notEqual(b.mode, a.mode);
-		assert.notEqual(b.secureNetKey, a.secureNetKey);
-		assert.notEqual(b.secureNetId, a.secureNetId);
+		//different modes
+		assert.equal(a.getMode(), 'test');
+		assert.equal(b.getMode(), 'live');
+
+		//different endpoints
+		assert.equal(a.getBaseUrl(), 'https://gwapi.demo.securenet.com/api/');
+		assert.equal(b.getBaseUrl(), 'https://gwapi.securenet.com/api/');
+
+	});
+
+	it('can change mode', function () {
+		var a = new SecureNet(example.config);
+		assert.equal(a.getMode(), 'test');
+
+		a.setMode('live');
+
+		assert.equal(a.getMode(), 'live');
 	});
 });

@@ -1,20 +1,27 @@
 'use strict';
 
+var Util = require('./lib/util');
+
 module.exports = function(options) {
 
-
 	var secureNet = {};
-	var util = require('./lib/util').init(options);
-
-	//expose properties (for unit tests)
-	secureNet.mode = options.mode;
-	secureNet.secureNetId = options.credentials.secureNetId;
-	secureNet.secureNetKey = options.credentials.secureNetKey;
+	var util = new Util(options);
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Config
 	////////////////////////////////////////////////////////////////////////////////
 
+	secureNet.setMode = function(mode){
+		util.mode(mode);
+	};
+
+	secureNet.getMode = function(){
+		return util.mode();
+	};
+
+	secureNet.getBaseUrl = function(){
+		return util.baseUrl();
+	};
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Settlement

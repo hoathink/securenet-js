@@ -15,8 +15,8 @@ npm install securenet --save
 ```javascript
 
 var credentials = {
-	secureNetId: ' your securenet id key ', //provided via signup email
-	secureNetKey: ' your securenet secure key ' //provided inside virtual terminal
+	secureNetId: ' your SecureNet Id ', //provided via signup email
+	secureNetKey: ' your SecureNet secure Key ' //provided inside virtual terminal
 };
 var developerApplication = {
 	developerId: 12345678,
