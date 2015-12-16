@@ -45,70 +45,19 @@ The following features are supported:
 
 ## Supported PayOS Commands
 
-All features of the [PayOS API docs](https://apidocs.securenet.com/docs/getstarted.html) are supported.
+All commands of the [PayOS API docs](https://apidocs.securenet.com/docs/getstarted.html) are supported.
 
-Payment Methods
-- Credit Cards
-	- Card Not Present (online)
-	- Card Present (swipe/track)
-- Bank Accounts
-	- Savings accounts
-	- checking accounts
-- Pin-less debit cards
-- Vault data
-
-Supported Payments
-- Charges
-- Authorizations
-- Capture
-- Voids
-- Refunds
+- Credit Card Present
+- Credit Card Not Present
+- ACH
+- Settlement
 - Credits
-- Verify (card data)
-- Settlement Batches (authorizations & captures)
-	- Close
-	- Retrieving closed batch
-	- Retrieving current batch
-
-Vault
-- Customers
-	- Create
-	- Retrieve
-	- Update
-- Payment Method (associated with customer)
-	- Create
-	- Retrieve
-	- Update
-	- Delete
-- Storing Customer & Payment Method at the same time
-- Storing after charge
-- Paying with stored data
-
-Billing Plans
-- Recurring Paymment Plan
-	- Create
-	- Update
-	- Retrieve
-- Installment Plan
-	- Cretae
-	- Update
-	- Retrieve
-- Variable Payment Plan
-	- Create
-	- Update
-	- Retrieve
-
-Transaction Reporting
-- Searching
-- Retrieving
-- Update transaction
-
-User Defined Fields
--
-
-## API
-
-Please see the [PayOS API docs](https://apidocs.securenet.com/docs/getstarted.html).
+- Refunds
+- Voids
+- Tokenization (only for unit testing workflows, use PayOS.js in production)
+- SecureNet Vault
+- Recurring Billing
+- Transaction Reporting and Management
 
 ## Unit Tests
 
