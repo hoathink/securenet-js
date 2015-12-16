@@ -3,8 +3,8 @@
 var _ = require('lodash');
 var assert = require('chai').assert; //http://chaijs.com/api/assert/
 var SecureNet = require('../../index');
-var example = require('../example.data');
-var api, transactionId, paymentMethodId;
+var example = require('../support/data');
+var api, customerId, transactionId, paymentMethodId;
 
 describe('Payments transactions - check', function() {
 
@@ -15,17 +15,18 @@ describe('Payments transactions - check', function() {
 		api = new SecureNet(example.config);
 	});
 
-	it.skip('charge - using check data', function(next) {
+	it('charge - using check data', function(next) {
 
 		//setup
 		var params = {
 			amount: 11.00,
+            addToVault: true,
 			check: example.check
 		};
 		api.charge(params, function(err, res) {
 			if (err) return next(err);
 
-			console.log('res', res);
+			//console.log('res', res);
 
 			/**/
 
@@ -41,7 +42,7 @@ describe('Payments transactions - check', function() {
 		});
 	});
 
-    it.skip('createCustomer in vault', function(next) {
+    it('createCustomer in vault', function(next) {
         api.createCustomer(example.customer, function(err, res) {
             if (err) return next(err);
 
@@ -59,7 +60,7 @@ describe('Payments transactions - check', function() {
         });
     });
 
-    it.skip('createCustomerPaymentMethod check', function(next) {
+    it('createCustomerPaymentMethod check', function(next) {
 
         //setup
         var method = {
@@ -76,7 +77,7 @@ describe('Payments transactions - check', function() {
         api.createCustomerPaymentMethod(method, function(err, res) {
             if (err) return next(err);
 
-            console.log('res', res);
+            //console.log('res', res);
 
             //confirm response
             assert.typeOf(res, 'object');
@@ -90,7 +91,7 @@ describe('Payments transactions - check', function() {
         });
     });
 
-    it.skip('charge - using check data stored in vault', function(next) {
+    it('charge - using check data stored in vault', function(next) {
 
         //setup
         var params = {
@@ -100,9 +101,7 @@ describe('Payments transactions - check', function() {
         api.charge(params, function(err, res) {
             if (err) return next(err);
 
-            console.log('res', res);
-
-            /**/
+            //console.log('res', res);
 
             //confirm response
             assert.typeOf(res, 'object');

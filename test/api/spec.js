@@ -1,7 +1,7 @@
 'use strict';
 var assert = require('chai').assert; //http://chaijs.com/api/assert/
 var SecureNet = require('../../index');
-var example = require('../example.data');
+var example = require('../support/data');
 var api;
 
 describe('Spec', function () {

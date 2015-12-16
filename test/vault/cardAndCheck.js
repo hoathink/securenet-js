@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var assert = require('chai').assert; //http://chaijs.com/api/assert/
 var SecureNet = require('../../index');
-var example = require('../example.data');
+var example = require('../support/data');
 var api, customerId, paymentMethodId;
 
 describe('Vault - card data', function() {
@@ -41,6 +41,7 @@ describe('Vault - card data', function() {
 
 			//confirm response
 			assert.typeOf(res, 'object');
+			assert.ok(res.success);
 			assert.equal(customerId, res.customerId);
 			assert.typeOf(res.vaultCustomer, 'object');
 
@@ -65,6 +66,7 @@ describe('Vault - card data', function() {
 
 			//confirm response
 			assert.typeOf(res, 'object');
+			assert.ok(res.success);
 			assert.equal(customerId, res.customerId);
 			assert.typeOf(res.vaultCustomer, 'object');
 
@@ -74,7 +76,7 @@ describe('Vault - card data', function() {
 		});
 	});
 
-	it.skip('createCustomerPaymentMethod check', function(next) {
+	it('createCustomerPaymentMethod check', function(next) {
 
 		//setup
 		var method = {
@@ -91,10 +93,11 @@ describe('Vault - card data', function() {
 		api.createCustomerPaymentMethod(method, function(err, res) {
 			if (err) return next(err);
 
-			console.log('res', res);
+			//console.log('res', res);
 
 			//confirm response
 			assert.typeOf(res, 'object');
+			assert.ok(res.success);
 			assert.typeOf(res.vaultPaymentMethod, 'object');
 			//assert.equal(res.vaultPaymentMethod.method, 'CC');
 
@@ -155,6 +158,7 @@ describe('Vault - card data', function() {
 
 			//confirm response
 			assert.typeOf(res, 'object');
+			assert.ok(res.success);
 			assert.typeOf(res.vaultPaymentMethod, 'object');
 			assert.equal(res.vaultPaymentMethod.method, 'CC');
 
@@ -209,6 +213,7 @@ describe('Vault - card data', function() {
 
 			//confirm response
 			assert.typeOf(res, 'object');
+			assert.ok(res.success);
 			assert.typeOf(res.vaultPaymentMethod, 'object');
 			//assert.equal(res.vaultPaymentMethod.method, 'CC');
 
@@ -268,6 +273,7 @@ describe('Vault - card data', function() {
 
 			//confirm response
 			assert.typeOf(res, 'object');
+			assert.ok(res.success);
 			assert.typeOf(res.vaultPaymentMethod, 'object');
 			assert.equal(res.vaultPaymentMethod.method, 'CC');
 
@@ -303,6 +309,7 @@ describe('Vault - card data', function() {
 
 			//confirm response
 			assert.typeOf(res, 'object');
+			assert.ok(res.success);
 			//assert.typeOf(res.vaultPaymentMethod, 'object');
 			//assert.equal(res.vaultPaymentMethod.method, 'CC');
 
