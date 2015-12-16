@@ -10,10 +10,12 @@ SecureNet [PayOS API](https://apidocs.securenet.com/docs/getstarted.html) commun
 - Credits
 - Refunds
 - Voids
-- Tokenization (only for unit testing workflows, use PayOS.js in production)
 - SecureNet Vault
 - Recurring Billing
 - Transaction Reporting and Management
+- Tokenization *
+
+* only for unit testing workflows, use [PayOS.js](https://apidocs.securenet.com/docs/tokenization.html?lang=json) or SecureNet Vault in production.
 
 ## Installation
 
@@ -26,17 +28,15 @@ npm install securenet --save
 
 ```javascript
 
-var credentials = {
-	secureNetId: ' your SecureNet Id ', //provided via signup email
-	secureNetKey: ' your SecureNet secure Key ' //provided inside virtual terminal
-};
-var developerApplication = {
-	developerId: 12345678,
-	version: '1.2'
-};
 var config = {
-	credentials: credentials,
-	developerApplication: developerApplication,
+	credentials: {
+		secureNetId: ' your SecureNet Id ', //provided via signup email
+		secureNetKey: ' your SecureNet secure Key ' //provided inside virtual terminal
+	},
+	developerApplication: {
+		developerId: 12345678,
+		version: '1.2'
+	},
 	mode: 'live' //live or test
 };
 
@@ -48,10 +48,10 @@ var payos = new SecureNet(config);
 
 The following features are supported:
 - Multiple client instances.
-- Can change mode between live (`live`) and sandbox (`test`).
+- Can change mode between live and sandbox.
 	- At initialization of the client.
 	- On a client instance after initialization.
-	- On a specific transaction.
+	- For a specific transaction and default back to previous mode.
 - All PayOS API commands are supported.
 - Fully unit tested.
 
