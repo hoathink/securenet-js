@@ -71,21 +71,13 @@ export SECURENET_KEY=yyyy
 Install with npm:
 ```bash
 $ npm install -g mocha
-$ npm install -g should
+$ npm install -g chai
 ```
 
 Run unit tests:
 ```bash
 $ npm test
 ```
-
-## Code Coverage
-```bash
-npm install -g istanbul
-istanbul cover _mocha -- -R spec
-open coverage/lcov-report/index.html
-```
-
 
 ## People
 The original author of securenet-node is [Richard Stanford](http://richardstanford.com/).
