@@ -21,28 +21,6 @@ Note: for browser tokenization see [PayOS.js](https://apidocs.securenet.com/docs
 ```bash
 npm install securenet --save
 ```
-
-
-## Usage
-
-```javascript
-
-var config = {
-	credentials: {
-		secureNetId: ' your SecureNet Id ', //provided via signup email
-		secureNetKey: ' your SecureNet secure Key ' //provided inside virtual terminal
-	},
-	developerApplication: {
-		developerId: 12345678,
-		version: '1.2'
-	},
-	mode: 'live' //live or test
-};
-
-var SecureNet = require('securenet');
-var payos = new SecureNet(config);
-```
-
 ## Features
 
 The following features are supported:
@@ -53,6 +31,31 @@ The following features are supported:
 	- For a specific transaction and default back to previous mode.
 - All PayOS API commands are supported.
 - Fully unit tested.
+
+## Usage
+
+Initialize the payment gateway client:
+
+```javascript
+
+var config = {
+	credentials: {
+		secureNetId: ' your SecureNet Id ', //provided via signup email
+		secureNetKey: ' your SecureNet secure Key ' //provided inside virtual terminal
+	},
+	developerApplication: {
+		developerId: 12345678, // provided by SecureNet after certification
+		version: '1.2'
+	},
+	mode: 'live' //live or test
+};
+
+var SecureNet = require('securenet');
+var payos = new SecureNet(config);
+```
+
+See the unit tests for common application workflows.
+
 
 ## Unit Tests
 
