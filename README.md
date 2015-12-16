@@ -1,7 +1,19 @@
 securenet-node
 ==============
 
-SecureNet [PayOS API docs](https://apidocs.securenet.com/docs/getstarted.html) community library for Node.js.
+SecureNet [PayOS API](https://apidocs.securenet.com/docs/getstarted.html) community library for Node.js. All features and commands of the SecureNet PayOS payment gateway are supported.
+
+- Credit Card Present
+- Credit Card Not Present
+- ACH
+- Settlement
+- Credits
+- Refunds
+- Voids
+- Tokenization (only for unit testing workflows, use PayOS.js in production)
+- SecureNet Vault
+- Recurring Billing
+- Transaction Reporting and Management
 
 ## Installation
 
@@ -42,22 +54,6 @@ The following features are supported:
 	- On a specific transaction.
 - All PayOS API commands are supported.
 - Fully unit tested.
-
-## Supported PayOS Commands
-
-All commands of the [PayOS API docs](https://apidocs.securenet.com/docs/getstarted.html) are supported.
-
-- Credit Card Present
-- Credit Card Not Present
-- ACH
-- Settlement
-- Credits
-- Refunds
-- Voids
-- Tokenization (only for unit testing workflows, use PayOS.js in production)
-- SecureNet Vault
-- Recurring Billing
-- Transaction Reporting and Management
 
 ## Unit Tests
 
