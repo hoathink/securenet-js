@@ -29,7 +29,7 @@ The following features are supported:
 	- At initialization of the client.
 	- On a client instance after initialization.
 	- For a specific transaction and default back to previous mode.
-- All PayOS API commands are supported.
+- All PayOS API features and commands are supported.
 - Fully unit tested.
 
 ## Usage
