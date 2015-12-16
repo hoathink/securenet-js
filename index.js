@@ -24,6 +24,19 @@ module.exports = function(options) {
 	};
 
 	////////////////////////////////////////////////////////////////////////////////
+	// Tokenization (for unit testing, use PayOS.js in production)
+	////////////////////////////////////////////////////////////////////////////////
+	secureNet._preVaultCard = function(data, callback) {
+		if (this.getMode() === 'live') throw new Error('Tokenization of card or check is a browser feature and is only implemented here for unit testing. If you want to tokenize on the server use vault methods.');
+
+		util.browserTokenizationForUnitTestingOnly('/PreVault/Card', data, callback);
+	};
+	secureNet._preVaultCheck = function(data, callback) {
+		if (this.getMode() === 'live') throw new Error('Tokenization of card or check is a browser feature and is only implemented here for unit testing. If you want to tokenize on the server use vault methods.');
+
+		util.browserTokenizationForUnitTestingOnly('/PreVault/Check', data, callback);
+	};
+	////////////////////////////////////////////////////////////////////////////////
 	// Settlement
 	////////////////////////////////////////////////////////////////////////////////
 

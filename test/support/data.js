@@ -4,13 +4,16 @@ exports.config = {
     mode: 'test',
     credentials: {
         secureNetId: process.env.SECURENET_ID,
-        secureNetKey: process.env.SECURENET_KEY
+        secureNetKey: process.env.SECURENET_SECURE_KEY
     },
     developerApplication: {
         developerId: 12345678,
         version: '1.2'
     }
 };
+
+//get the public key from virtual terminal
+exports.publicKey = process.env.SECURENET_PUBLIC_KEY; //only for unit testing
 
 exports.customer = {
     firstName: 'Test',

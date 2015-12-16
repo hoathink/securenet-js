@@ -65,7 +65,7 @@ The unit test spec requires you to set your api credentials as environment varia
 
 ```bash
 export SECURENET_ID=xxxx
-export SECURENET_KEY=yyyy
+export SECURENET_SECURE_KEY=yyyy
 ```
 
 Install with npm:
