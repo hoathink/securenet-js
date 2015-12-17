@@ -7,6 +7,7 @@ var isFunction = require('lodash.isfunction');
 var isObject = require('lodash.isobject');
 var isString = require('lodash.isstring');
 var isUndefined = require('lodash.isundefined');
+var message = 'Tokenization of card or check is a browser feature and is only implemented here for unit testing. If you want to tokenize on the server use vault methods.';
 
 function isInteger (x){
 	if (isString(x)) x = parseInt(x);
@@ -39,12 +40,20 @@ module.exports = function(options) {
 	////////////////////////////////////////////////////////////////////////////////
 
 	secureNet._preVaultCard = function(data, next) {
-		if (this.getMode() === 'live') throw new Error('Tokenization of card or check is a browser feature and is only implemented here for unit testing. If you want to tokenize on the server use vault methods.');
+
+		//validate
+		Assert.ok(isObject(data), 'param `data` must be an object.');
+		Assert.ok(isFunction(next), 'param `next` must be a next ');
+		Assert.ok(this.getMode() === 'test', message);
 
 		util.browserTokenizationForUnitTestingOnly('/PreVault/Card', data, next);
 	};
 	secureNet._preVaultCheck = function(data, next) {
-		if (this.getMode() === 'live') throw new Error('Tokenization of card or check is a browser feature and is only implemented here for unit testing. If you want to tokenize on the server use vault methods.');
+
+		//validate
+		Assert.ok(isObject(data), 'param `data` must be an object.');
+		Assert.ok(isFunction(next), 'param `next` must be a next ');
+		Assert.ok(this.getMode() === 'test', message);
 
 		util.browserTokenizationForUnitTestingOnly('/PreVault/Check', data, next);
 	};
