@@ -11,7 +11,7 @@ describe('Payments/credit (forced/unlinked) credit to card', function() {
 	//set the timeout
 	this.timeout(15000);
 
-	beforeEach(function() {
+	before(function() {
 		api = new SecureNet(example.config);
 	});
 

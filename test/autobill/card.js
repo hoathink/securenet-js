@@ -11,7 +11,7 @@ describe('AutoBill - card data', function() {
 	//set the timeout
 	this.timeout(15000);
 
-	beforeEach(function() {
+	before(function() {
 		api = new SecureNet(example.config);
 	});
 

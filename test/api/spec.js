@@ -5,7 +5,7 @@ var example = require('../support/data');
 var api;
 
 describe('Spec', function () {
-	beforeEach(function () {
+	before(function () {
 		api = new SecureNet(example.config);
 	});
 

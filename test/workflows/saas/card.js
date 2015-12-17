@@ -29,7 +29,7 @@ describe('Workflows - online SAAS application', function() {
 		api._preVaultCard(params, function(err, res) {
 			if (err) return next(err);
 
-			console.log('res', res);
+			//console.log('res', res);
 
 			/*{
 				"token": "695c0f49-2a37-4ac6-8416-79fa429e3f26",
