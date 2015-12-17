@@ -1,6 +1,5 @@
 'use strict';
 
-var _ = require('lodash');
 var assert = require('chai').assert; //http://chaijs.com/api/assert/
 var SecureNet = require('../../../index');
 var example = require('../../support/data');

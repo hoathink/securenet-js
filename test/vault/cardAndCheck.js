@@ -1,6 +1,6 @@
 'use strict';
 
-var _ = require('lodash');
+var clone = require('lodash.clone');
 var assert = require('chai').assert; //http://chaijs.com/api/assert/
 var SecureNet = require('../../index');
 var example = require('../support/data');
@@ -54,7 +54,7 @@ describe('Vault - card data', function() {
 	it('updateCustomer', function(next) {
 
 		//setup
-		var customer = _.clone(example.customer, true);
+		var customer = clone(example.customer, true);
 		customer.customerId = customerId;
 		customer.firstName = 'Dan';
 		customer.lastName = 'Hollenbeck';
@@ -230,7 +230,7 @@ describe('Vault - card data', function() {
 		var params = {
 			customerId: customerId,
 			paymentMethodId: paymentMethodId,
-			card: _.clone(example.card),
+			card: clone(example.card),
 			phone: '512-250-7865',
 			notes: 'Create a vault account',
 			primary: true,

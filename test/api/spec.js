@@ -54,7 +54,7 @@ describe('Spec - features', function () {
 		assert.typeOf(api.updateRecurringPlan, 'function');
 
 		assert.typeOf(api.getPlan, 'function');
-		assert.typeOf(api.deletePlan, 'function');
+		//assert.typeOf(api.deletePlan, 'function');
 
 		//credits, refunds and voids
 		assert.typeOf(api.credit, 'function');

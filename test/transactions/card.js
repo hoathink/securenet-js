@@ -1,6 +1,5 @@
 'use strict';
 
-var _ = require('lodash');
 var assert = require('chai').assert; //http://chaijs.com/api/assert/
 var SecureNet = require('../../index');
 var example = require('../support/data');
@@ -113,10 +112,11 @@ describe('Payments transactions - card', function() {
 		//setup
 		var params = {
 			amount: 11.00,
+            transactionId: transactionId,
 			card: example.card,
 			extendedInformation: example.extendedInformation
 		};
-		api.authorize(params, function(err, res) {
+		api.capture(params, function(err, res) {
 			if (err) return next(err);
 
 			//console.log('res', res);
