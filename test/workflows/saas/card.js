@@ -3,7 +3,7 @@
 var assert = require('chai').assert; //http://chaijs.com/api/assert/
 var SecureNet = require('../../../index');
 var example = require('../../support/data');
-var api, token, customerId, paymentMethodId;
+var api, paymentMethodId, customerId, planId;
 
 describe('Workflows - online SAAS application', function() {
 
@@ -14,11 +14,8 @@ describe('Workflows - online SAAS application', function() {
 		api = new SecureNet(example.config);
 	});
 
-	it('browser tokenization so the PCI data never touches your server', function(next) {
+	it('Signup (in browser) - send card (PCI data) directly to SecureNet', function(next) {
 
-		//User-Agent:
-
-		//var headers =
 		var params = {
 			publicKey: example.publicKey, //get this from virtual terminal
 			card: example.card,
@@ -44,13 +41,56 @@ describe('Workflows - online SAAS application', function() {
 			assert.ok(res.success);
 
 			//setup for next test
-			token = res.token;
+			paymentMethodId = res.token;
 			customerId = res.customerId;
 
 			next();
 		});
 	});
 
+	it('Confirmation (in server) - create recurring payment plan', function(next) {
+
+		//setup
+		var params = {
+			customerId: customerId,
+			plan: {
+				cycleType: 'monthly',
+				dayOfTheMonth: 1,
+				dayOfTheWeek: 1,
+				month: 6,
+				frequency: 10,
+				amount: 22.95,
+				startDate: '2016-10-01',
+				endDate: null,
+				maxRetries: 4,
+				primaryPaymentMethodId: paymentMethodId,
+				//secondaryPaymentMethodId: REPLACE_ME,
+				notes: 'This is a recurring plan',
+				active: true,
+				userDefinedFields: example.userDefinedFields
+			}
+		};
+
+		//make customer change
+		api.createRecurringPlan(params, function(err, res) {
+			if (err) return next(err);
+
+			//console.log('res', res);
+
+			/*{*/
+
+			//confirm response
+			assert.typeOf(res, 'object');
+			assert.ok(res.success);
+			//assert.typeOf(res.vaultPaymentMethod, 'object');
+			//assert.equal(res.vaultPaymentMethod.method, 'CC');
+
+			//setup for next test
+			planId = res.planId;
+
+			next();
+		});
+	});
 });
 
 
