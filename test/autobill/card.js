@@ -70,118 +70,122 @@ describe('AutoBill - card data', function() {
 		});
 	});
 
-	it('createRecurringPlan card', function(next) {
+	describe('Recurring Plan', function() {
 
-		//setup
-		var params = {
-			customerId: customerId,
-			plan: {
-				cycleType: 'monthly',
-				dayOfTheMonth: 1,
-				dayOfTheWeek: 1,
-				month: 6,
-				frequency: 10,
-				amount: 22.95,
-				startDate: '2016-10-01',
-				endDate: null,
-				maxRetries: 4,
-				primaryPaymentMethodId: paymentMethodId,
-				//secondaryPaymentMethodId: REPLACE_ME,
-				notes: 'This is a recurring plan',
-				active: true,
-				userDefinedFields: example.userDefinedFields
-			}
-		};
+		it('createRecurringPlan card', function(next) {
 
-		//make customer change
-		api.createRecurringPlan(params, function(err, res) {
-			if (err) return next(err);
+			//setup
+			var params = {
+				customerId: customerId,
+				plan: {
+					cycleType: 'monthly',
+					dayOfTheMonth: 1,
+					dayOfTheWeek: 1,
+					month: 6,
+					frequency: 10,
+					amount: 22.95,
+					startDate: '2016-10-01',
+					endDate: null,
+					maxRetries: 4,
+					primaryPaymentMethodId: paymentMethodId,
+					//secondaryPaymentMethodId: REPLACE_ME,
+					notes: 'This is a recurring plan',
+					active: true,
+					userDefinedFields: example.userDefinedFields
+				}
+			};
 
-			//console.log('res', res);
+			//make customer change
+			api.createRecurringPlan(params, function(err, res) {
+				if (err) return next(err);
 
-			/*{*/
+				//console.log('res', res);
 
-			//confirm response
-			assert.typeOf(res, 'object');
-			assert.ok(res.success);
-			//assert.typeOf(res.vaultPaymentMethod, 'object');
-			//assert.equal(res.vaultPaymentMethod.method, 'CC');
+				/*{*/
 
-			//setup for next test
-			planId = res.planId;
+				//confirm response
+				assert.typeOf(res, 'object');
+				assert.ok(res.success);
+				//assert.typeOf(res.vaultPaymentMethod, 'object');
+				//assert.equal(res.vaultPaymentMethod.method, 'CC');
 
-			next();
+				//setup for next test
+				planId = res.planId;
+
+				next();
+			});
 		});
-	});
 
-	it('updateRecurringPlan card', function(next) {
+		it('updateRecurringPlan card', function(next) {
 
-		//setup
-		var params = {
-			customerId: customerId,
-			planId: planId,
-			plan: {
-				cycleType: 'monthly',
-				dayOfTheMonth: 1,
-				month: 6,
-				frequency: 10,
-				amount: 52.95,
-				startDate: '2016-10-01',
-				endDate: null,
-				maxRetries: 4,
-				notes: 'This is an updated recurring plan',
-				active: true
-			}
-		};
+			//setup
+			var params = {
+				customerId: customerId,
+				planId: planId,
+				plan: {
+					cycleType: 'monthly',
+					dayOfTheMonth: 1,
+					month: 6,
+					frequency: 10,
+					amount: 52.95,
+					startDate: '2016-10-01',
+					endDate: null,
+					maxRetries: 4,
+					notes: 'This is an updated recurring plan',
+					active: true
+				}
+			};
 
-		//make customer change
-		api.updateRecurringPlan(params, function(err, res) {
-			if (err) return next(err);
+			//make customer change
+			api.updateRecurringPlan(params, function(err, res) {
+				if (err) return next(err);
 
-			//console.log('res', res);
+				//console.log('res', res);
 
-			/**/
+				/**/
 
-			//confirm response
-			assert.typeOf(res, 'object');
-			assert.ok(res.success);
-			//assert.typeOf(res.vaultPaymentMethod, 'object');
-			//assert.equal(res.vaultPaymentMethod.method, 'CC');
+				//confirm response
+				assert.typeOf(res, 'object');
+				assert.ok(res.success);
+				//assert.typeOf(res.vaultPaymentMethod, 'object');
+				//assert.equal(res.vaultPaymentMethod.method, 'CC');
 
-			//setup for next test
-			planId = res.planId;
+				//setup for next test
+				planId = res.planId;
 
-			next();
+				next();
+			});
 		});
-	});
 
-	it('getPlan card', function(next) {
+		it('getPlan card', function(next) {
 
-		//setup
-		var params = {
-			customerId: customerId,
-			planId: planId
-		};
+			//setup
+			var params = {
+				customerId: customerId,
+				planId: planId
+			};
 
-		//make customer change
-		api.getPlan(params, function(err, res) {
-			if (err) return next(err);
+			//make customer change
+			api.getPlan(params, function(err, res) {
+				if (err) return next(err);
 
-			//console.log('res', res);
+				//console.log('res', res);
 
-			/**/
+				/**/
 
-			//confirm response
-			assert.typeOf(res, 'object');
-			assert.ok(res.success);
-			//assert.typeOf(res.vaultPaymentMethod, 'object');
-			//assert.equal(res.vaultPaymentMethod.method, 'CC');
+				//confirm response
+				assert.typeOf(res, 'object');
+				assert.ok(res.success);
+				//assert.typeOf(res.vaultPaymentMethod, 'object');
+				//assert.equal(res.vaultPaymentMethod.method, 'CC');
 
-			//setup for next test
-			planId = res.planId;
+				//setup for next test
+				planId = res.planId;
 
-			next();
+				next();
+			});
 		});
+
 	});
 
 });
