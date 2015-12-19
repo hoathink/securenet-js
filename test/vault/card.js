@@ -76,38 +76,6 @@ describe('Vault - card data', function() {
 		});
 	});
 
-	it('createCustomerPaymentMethod check', function(next) {
-
-		//setup
-		var method = {
-			customerId: customerId,
-			check: example.check,
-			phone: '512-250-7865',
-			notes: 'Create a vault account',
-			accountDuplicateCheckIndicator: 0,
-			primary: true,
-			userDefinedFields: example.userDefinedFields
-		};
-
-		//make customer change
-		api.createCustomerPaymentMethod(method, function(err, res) {
-			if (err) return next(err);
-
-			//console.log('res', res);
-
-			//confirm response
-			assert.typeOf(res, 'object');
-			assert.ok(res.success);
-			assert.typeOf(res.vaultPaymentMethod, 'object');
-			//assert.equal(res.vaultPaymentMethod.method, 'CC');
-
-			//setup for next test
-			//paymentMethodId = res.vaultPaymentMethod.paymentId;
-
-			next();
-		});
-	});
-
 	it('createCustomerPaymentMethod card', function(next) {
 
 		//setup
@@ -128,7 +96,7 @@ describe('Vault - card data', function() {
 			//console.log('res', res);
 
 			/*
-			{ vaultPaymentMethod:
+{ vaultPaymentMethod:
    { customerId: '5000062',
      paymentId: '1',
      card:
@@ -154,7 +122,8 @@ describe('Vault - card data', function() {
   responseDateTime: Sat Dec 12 2015 07:15:02 GMT-0600 (CST),
   rawRequest: null,
   rawResponse: null,
-  jsonRequest: null }*/
+  jsonRequest: null }
+  */
 
 			//confirm response
 			assert.typeOf(res, 'object');

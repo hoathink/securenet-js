@@ -18,23 +18,38 @@ describe('Workflows - online SAAS application', function() {
 
 		var params = {
 			publicKey: example.publicKey, //get this from virtual terminal
-			card: example.card,
+			check: example.check,
 			addToVault: true
 		};
 
-		api._preVaultCard(params, function(err, res) {
+		//console.log('params', params );
+
+		/*
+		{ publicKey: '...',
+			check: {
+				name: 'John Smith',
+				routingNumber: 222371863,
+				accountNumber: 123456
+			},
+			addToVault: true
+		}
+		*/
+
+		api._preVaultCheck(params, function(err, res) {
 			if (err) return next(err);
 
 			//console.log('res', res);
 
-			/*{
-				"token": "...",
+			/*
+			{
+				"token": "695c0f49-2a37-4ac6-8416-79fa429e3f26",
 				"customerId": "181811",
 				"success": true,
 				"responseCode": 1,
 				"message": "Approved",
 				"responseDateTime": "2014-07-20T04:11:47.99Z"
-			}*/
+			}
+			*/
 
 			//confirm response
 			assert.typeOf(res, 'object');
@@ -76,8 +91,6 @@ describe('Workflows - online SAAS application', function() {
 			if (err) return next(err);
 
 			//console.log('res', res);
-
-			/*{*/
 
 			//confirm response
 			assert.typeOf(res, 'object');
