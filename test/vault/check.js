@@ -118,7 +118,7 @@ describe('Vault - check data', function() {
 		api.getCustomerPaymentMethod(params, function(err, res) {
 			if (err) return next(err);
 
-			console.log('res', res);
+			//console.log('res', res);
 
 			/**/
 

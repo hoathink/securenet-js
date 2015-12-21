@@ -5,7 +5,7 @@ var SecureNet = require('../../index');
 var example = require('../support/data');
 var api, customerId, paymentMethodId, planId;
 
-describe('AutoBill - card data', function() {
+describe('AutoBill - installment plan', function() {
 
 	//set the timeout
 	this.timeout(15000);
@@ -70,7 +70,7 @@ describe('AutoBill - card data', function() {
 	});
 
 
-	it('createRecurringPlan card', function(next) {
+	it('createInstallmentPlan card', function(next) {
 
 		//setup
 		var params = {
@@ -78,23 +78,25 @@ describe('AutoBill - card data', function() {
 			plan: {
 				cycleType: 'monthly',
 				dayOfTheMonth: 1,
-				dayOfTheWeek: 1,
-				month: 6,
-				frequency: 10,
-				amount: 22.95,
-				startDate: '2016-10-01',
-				endDate: null,
+				frequency: 1,
+				numberOfPayments: 12,
+				installmentAmount: 276.95,
+				remainderAmount: 12.90,
+				balloonPaymentAddedTo: 'FIRST',
+				remainderPaymentAddedTo: 'LAST',
+				startDate: '10/1/2016',
+				endDate: '10/1/2020',
 				maxRetries: 4,
-				primaryPaymentMethodId: paymentMethodId,
+				primaryPaymentMethodId:  paymentMethodId,
 				//secondaryPaymentMethodId: REPLACE_ME,
-				notes: 'This is a recurring plan',
+				notes: 'This is an installment plan',
 				active: true,
 				userDefinedFields: example.userDefinedFields
-			}
+  			}
 		};
 
 		//make customer change
-		api.createRecurringPlan(params, function(err, res) {
+		api.createInstallmentPlan(params, function(err, res) {
 			if (err) return next(err);
 
 			//console.log('res', res);
@@ -114,7 +116,7 @@ describe('AutoBill - card data', function() {
 		});
 	});
 
-	it('updateRecurringPlan card', function(next) {
+	it.skip('updateInstallmentPlan card', function(next) {
 
 		//setup
 		var params = {
@@ -123,16 +125,21 @@ describe('AutoBill - card data', function() {
 			plan: {
 				cycleType: 'monthly',
 				dayOfTheMonth: 1,
-				month: 6,
-				frequency: 10,
-				amount: 52.95,
-				startDate: '2016-10-01',
-				endDate: null,
+				frequency: 1,
+				numberOfPayments: 15,
+				installmentAmount: 300.95,
+				remainderAmount: 17.90,
+				balloonPaymentAddedTo: 'FIRST',
+				remainderPaymentAddedTo: 'LAST',
+				startDate: '10/1/2016',
+				endDate: '10/1/2020',
 				maxRetries: 4,
-				notes: 'This is an updated recurring plan',
-				active: true
+				notes: 'This is an updated installment plan',
+				active: true,
 			}
 		};
+
+		//console.log('params', params);
 
 		//make customer change
 		api.updateRecurringPlan(params, function(err, res) {
