@@ -85,6 +85,12 @@ $ npm install istanbul -g
 $ istanbul cover _mocha
 ```
 
+## Code Quality
+```bash
+npm install -g eslint
+eslint .
+```
+
 ## People
 The original author of securenet-node is [Richard Stanford](http://richardstanford.com/).
 
