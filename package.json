@@ -1,6 +1,6 @@
 {
   "name": "securenet",
-  "version": "2.0.0",
+  "version": "0.9.0",
   "description": "A library to process ACH and credit card transactions through the SecureNet gateway",
   "main": "index.js",
   "dependencies": {
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HOAThink/securenet-node.git"
+    "url": "https://github.com/HOAThink/securenet-js.git"
   },
   "keywords": [
     "securenet",
@@ -31,7 +31,7 @@
   ],
   "author": "Dan Hollenbeck <dan@hollenbecks.com> (https://github.com/dhollenbeck)",
   "license": "BSD-2-Clause",
-  "homepage": "hhttps://github.com/HOAThink/securenet-node",
+  "homepage": "hhttps://github.com/HOAThink/securenet-js",
   "maintainers": [
     "dhollenbeck <dan@hollenbecks.com>"
   ],
