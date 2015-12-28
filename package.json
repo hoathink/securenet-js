@@ -1,7 +1,7 @@
 {
   "name": "securenet-js",
-  "version": "0.9.0",
-  "description": "A library to process ACH and credit card transactions through the SecureNet gateway",
+  "version": "0.9.1",
+  "description": "A library to process ACH and credit card transactions through the SecureNet gateway. Include unit tests.",
   "main": "index.js",
   "dependencies": {
     "lodash.clone": "^3.0.3",
@@ -10,7 +10,7 @@
     "lodash.isobject": "^3.0.2",
     "lodash.isstring": "^3.0.1",
     "lodash.isundefined": "^3.0.1",
-    "request": "~2.36.0"
+    "request": "^2.36.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
