@@ -1,4 +1,4 @@
-securenet-node
+securenet-js
 ==============
 
 SecureNet [PayOS API](https://apidocs.securenet.com/docs/getstarted.html) community library for Node.js. All features and commands of the SecureNet PayOS API payment gateway are supported. [SecureNet](http://www.securenet.com/) is a [WorldPay](http://www.worldpay.com/us) company.
