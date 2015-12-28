@@ -93,7 +93,7 @@ describe('AutoBill - variable plan', function() {
 		api.createRecurringPlan(params, function(err, res) {
 			if (err) return next(err);
 
-			console.log('res', res);
+			//console.log('res', res);
 
 			/*{*/
 
@@ -118,7 +118,7 @@ describe('AutoBill - variable plan', function() {
 			planId: planId,
 			plan: {
 				scheduledPayments: [
-					{scheduleId: 1093233, amount: 132.89, paymentDate: '10/1/2016'},
+					{scheduleId: 1093233, amount: 132.89, paymentDate: '10/1/2016'}
 				]
 			}
 		};

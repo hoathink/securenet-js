@@ -92,7 +92,7 @@ describe('AutoBill - installment plan', function() {
 				notes: 'This is an installment plan',
 				active: true,
 				userDefinedFields: example.userDefinedFields
-  			}
+			}
 		};
 
 		//make customer change
@@ -135,7 +135,7 @@ describe('AutoBill - installment plan', function() {
 				endDate: '10/1/2020',
 				maxRetries: 4,
 				notes: 'This is an updated installment plan',
-				active: true,
+				active: true
 			}
 		};
 

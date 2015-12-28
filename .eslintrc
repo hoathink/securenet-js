@@ -1,0 +1,14 @@
+{
+    "extends": "eslint:recommended",
+    "env": {
+        "browser": false,
+        "node": true,
+        "mocha": true
+    },
+    "rules": {
+    	"space-after-keywords": 2,
+    	"no-trailing-spaces": 2,
+    	"eol-last": 2,
+    	"semi": 2
+    }
+}

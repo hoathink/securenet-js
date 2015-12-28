@@ -3,7 +3,7 @@
 var assert = require('chai').assert; //http://chaijs.com/api/assert/
 var SecureNet = require('../../../index');
 var example = require('../../support/data');
-var api, customerId, paymentMethodId;
+var api;
 
 describe('Payments/credit (forced/unlinked) credit to card', function() {
 

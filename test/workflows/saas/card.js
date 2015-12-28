@@ -1,3 +1,4 @@
+/*eslint-disable no-unused-vars*/
 'use strict';
 
 var assert = require('chai').assert; //http://chaijs.com/api/assert/

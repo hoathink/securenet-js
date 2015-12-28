@@ -1,3 +1,4 @@
+/*eslint-disable no-unused-vars*/
 'use strict';
 
 var assert = require('chai').assert; //http://chaijs.com/api/assert/
@@ -19,7 +20,7 @@ describe('Workflows - online SAAS application', function() {
 		var params = {
 			publicKey: example.publicKey, //get this from virtual terminal
 			check: example.check,
-			addToVault: true
+			addToVault:  true
 		};
 
 		//console.log('params', params );
