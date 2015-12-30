@@ -13,8 +13,9 @@ SecureNet [PayOS API](https://apidocs.securenet.com/docs/getstarted.html) commun
 - SecureNet Vault
 - Recurring Billing
 - Transaction Reporting and Management
-
-Note: for browser tokenization see [PayOS.js](https://apidocs.securenet.com/docs/tokenization.html?lang=json).
+- Tokenization
+	- For unit testing purposes.
+	- For browser tokenization see [PayOS.js](https://apidocs.securenet.com/docs/tokenization.html?lang=json).
 
 ## Installation
 
