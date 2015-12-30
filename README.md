@@ -19,7 +19,7 @@ Note: for browser tokenization see [PayOS.js](https://apidocs.securenet.com/docs
 ## Installation
 
 ```bash
-npm install securenet --save
+npm install securenet-js --save
 ```
 ## Features
 
