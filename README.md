@@ -92,6 +92,14 @@ npm install -g eslint
 eslint .
 ```
 
+## SecureNet Feature Limitations
+
+I have identified the following feature limitations with SecureNet's payment gateway.
+
+1. During tokenization errors their documentation indicates the response parameters will return `resultType`. However, during testing on the sandbox their api only seemed to return 'BAD_REQUEST' which does not allow for field specific error messages.
+
+2.  During tokenization you can immediately save the customer and payment method into the vault (addToVault = true). However, if there customer or the payment method fail to be saved in the vault response paramers will return success = true. You need to look for the presence of the customerId and paymentMethodId in order to confirm the customer and payment method was saved in the vault. Their is no error message return in this case to indicate why the customer or payment method was not saved in the vault. This makes messaging to the end user difficult.
+
 ## People
 The original author of securenet-node is [Richard Stanford](http://richardstanford.com/).
 
