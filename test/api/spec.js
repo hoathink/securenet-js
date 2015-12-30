@@ -22,8 +22,7 @@ describe('Spec - features', function () {
 		assert.typeOf(api.getBaseUrl, 'function');
 
 		//tokenization
-		assert.typeOf(api._preVaultCard, 'function');
-		assert.typeOf(api._preVaultCheck, 'function');
+		assert.typeOf(api.tokenize, 'function');
 
 		//settlement
 		assert.typeOf(api.getBatch, 'function');

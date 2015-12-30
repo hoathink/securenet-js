@@ -23,7 +23,7 @@ describe('Workflows - online SAAS application', function() {
 			addToVault: true
 		};
 
-		api._preVaultCard(params, function(err, res) {
+		api.tokenize(params, function(err, res) {
 			if (err) return next(err);
 
 			//console.log('res', res);

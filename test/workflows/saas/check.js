@@ -36,7 +36,7 @@ describe('Workflows - online SAAS application', function() {
 		}
 		*/
 
-		api._preVaultCheck(params, function(err, res) {
+		api.tokenize(params, function(err, res) {
 			if (err) return next(err);
 
 			//console.log('res', res);

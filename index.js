@@ -39,23 +39,16 @@ module.exports = function(options) {
 	// Tokenization (for unit testing, use PayOS.js in production)
 	////////////////////////////////////////////////////////////////////////////////
 
-	secureNet._preVaultCard = function(data, next) {
+	secureNet.tokenize = function(data, next) {
 
 		//validate
 		Assert.ok(isObject(data), 'param `data` must be an object.');
 		Assert.ok(isFunction(next), 'param `next` must be a next ');
 		Assert.ok(this.getMode() === 'test', message);
 
-		util.browserTokenizationForUnitTestingOnly('/PreVault/Card', data, next);
-	};
-	secureNet._preVaultCheck = function(data, next) {
+		var partialUrl = (data.card)? '/PreVault/Card' : '/PreVault/Check';
 
-		//validate
-		Assert.ok(isObject(data), 'param `data` must be an object.');
-		Assert.ok(isFunction(next), 'param `next` must be a next ');
-		Assert.ok(this.getMode() === 'test', message);
-
-		util.browserTokenizationForUnitTestingOnly('/PreVault/Check', data, next);
+		util.browserTokenization(partialUrl, data, next);
 	};
 
 	////////////////////////////////////////////////////////////////////////////////
