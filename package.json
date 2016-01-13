@@ -1,6 +1,6 @@
 {
   "name": "securenet-js",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "A library to process ACH and credit card transactions through the SecureNet gateway a WorldPay company. Include unit tests and code quality.",
   "main": "index.js",
   "dependencies": {

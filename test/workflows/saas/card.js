@@ -92,6 +92,57 @@ describe('Workflows - online SAAS application', function() {
 			next();
 		});
 	});
+
+	it('Operations (in server) - get customer for some operations reason', function(next) {
+
+		//setup
+		var params = {
+			customerId: customerId
+		};
+
+		//make customer change
+		api.getCustomer(params, function(err, res) {
+			if (err) return next(err);
+
+			//if (!res.success) console.log('res', res);
+
+			//confirm response
+			assert.typeOf(res, 'object');
+			assert.ok(res.success);
+			//assert.typeOf(res.vaultPaymentMethod, 'object');
+			//assert.equal(res.vaultPaymentMethod.method, 'CC');
+
+			//setup for next test
+
+			next();
+		});
+	});
+
+	it('Operations (in server) - get payment method for some operations reason', function(next) {
+
+		//setup
+		var params = {
+			customerId: customerId,
+			paymentMethodId: paymentMethodId
+		};
+
+		//make customer change
+		api.getCustomerPaymentMethod(params, function(err, res) {
+			if (err) return next(err);
+
+			//if (!res.success) console.log('res', res);
+
+			//confirm response
+			assert.typeOf(res, 'object');
+			assert.ok(res.success);
+			//assert.typeOf(res.vaultPaymentMethod, 'object');
+			//assert.equal(res.vaultPaymentMethod.method, 'CC');
+
+			//setup for next test
+
+			next();
+		});
+	});
 });
 
 

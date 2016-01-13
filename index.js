@@ -143,7 +143,7 @@ module.exports = function(options) {
 		Assert.ok(isObject(data), 'param `data` must be an object.');
 		Assert.ok(isFunction(next), 'param `next` must be a next ');
 		Assert.ok(isInteger(data.customerId), 'param `data.customerId` must be an integer.');
-		Assert.ok(isInteger(data.paymentMethodId), 'param `data.paymentMethodId` must be an integer.');
+		Assert.ok(isString(data.paymentMethodId) || isInteger(data.paymentMethodId), 'param `data.paymentMethodId` must be an integer or vault token.');
 
 		util.get('Customers/' + data.customerId + '/PaymentMethod/' + data.paymentMethodId, null, next);
 	};
@@ -154,7 +154,7 @@ module.exports = function(options) {
 		Assert.ok(isObject(data), 'param `data` must be an object.');
 		Assert.ok(isFunction(next), 'param `next` must be a next ');
 		Assert.ok(isInteger(data.customerId), 'param `data.customerId` must be an integer.');
-		Assert.ok(isInteger(data.paymentMethodId), 'param `data.paymentMethodId` must be an integer.');
+		Assert.ok(isInteger(data.paymentMethodId) || isInteger(data.paymentMethodId), 'param `data.paymentMethodId` must be an integer or vault token.');
 
 		util.put('Customers/' + data.customerId + '/PaymentMethod/' + data.paymentMethodId, data, next);
 	};
@@ -165,7 +165,7 @@ module.exports = function(options) {
 		Assert.ok(isObject(data), 'param `data` must be an object.');
 		Assert.ok(isFunction(next), 'param `next` must be a next ');
 		Assert.ok(isInteger(data.customerId), 'param `data.customerId` must be an integer.');
-		Assert.ok(isInteger(data.paymentMethodId), 'param `data.paymentMethodId` must be an integer.');
+		Assert.ok(isInteger(data.paymentMethodId) || isInteger(data.paymentMethodId), 'param `data.paymentMethodId` must be an integer or vault token.');
 
 		util.delete('Customers/' + data.customerId + '/PaymentMethod/' + data.paymentMethodId, null, next);
 	};

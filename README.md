@@ -28,8 +28,6 @@ The following features are supported:
 - Multiple client instances.
 - Can change mode between live and sandbox.
 	- At initialization of the client.
-	- On a client instance after initialization.
-	- For a specific transaction and default back to previous mode.
 - All PayOS API features and commands are supported.
 - Fully unit tested.
 
